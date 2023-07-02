@@ -6,6 +6,11 @@
     public class PrizeModel
     {
         /// <summary>
+        /// The unique identifier for the prize.
+        /// </summary>
+        public  int  Id { get; set; }
+
+        /// <summary>
         /// Gets or sets the place number of the prize.
         /// </summary>
         public int PlaceNumber { get; set; }
