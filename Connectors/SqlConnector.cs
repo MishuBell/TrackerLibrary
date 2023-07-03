@@ -21,7 +21,7 @@
 
 /*
 
-We want to return a PrizeModel ... but we also need to take a prize model as a parameter
+We want to return a PrizeModel ... but we also need to take a prize model as a parameter. 
 
 
 

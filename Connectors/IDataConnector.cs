@@ -9,7 +9,7 @@
         /// Saves the prize to the database.
         /// </summary>
         /// <param name="model">The prize information.</param>
-        /// <returns>The prize information, including the unique identifier.</returns>
+        /// <returns> A prize model </returns>
         PrizeModel CreatePrize(PrizeModel model);
     }
 }

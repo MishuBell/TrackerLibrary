@@ -1,6 +1,6 @@
 ﻿namespace TrackerLibrary
-{ 
-   /// <summary>
+{
+    /// <summary>
     /// Represents an entry in a matchup.
     /// </summary>
     public class MatchupEntryModel

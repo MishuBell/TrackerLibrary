@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-
 namespace TrackerUI
 {
     internal static class Program
@@ -15,9 +14,10 @@ namespace TrackerUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Initialize the connections
-            
+            TrackerLibrary.GlobalConfig.InitializeConnections(true, true);
 
-            Application.Run(new TournamentDashboardForm());
+            Application.Run(new CreatePrizeForm());
+            //Application.Run(new TournamentDashboardForm()); <- This is the startup we want later. 
         }
     }
 }
