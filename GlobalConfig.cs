@@ -1,36 +1,42 @@
+<<<<<<< Updated upstream
 ﻿using System.Collections.Generic;
+=======
+﻿using System.Configuration;
+>>>>>>> Stashed changes
 
 namespace TrackerLibrary
 {
+
     /// <summary>
-    /// This holds the list of IDataConnector instances that will be used by the application to connect to the database or text files. 
+    /// Static class used to store IDataConnector and retrieve Connection String values
     /// </summary>
     public static class GlobalConfig
     {
         /// <summary>
-        /// List of connections to be used by the application. This list will hold any class that implements the IDataConnector interface.
+        /// IDataConnector instance property using a private set and public getter
         /// </summary>
-        public static List<IDataConnector> Connections { get; private set; } = new List<IDataConnector>();
+        public static IDataConnector Connection { get; private set; }
 
         /// <summary>
-        /// Initializes any desired connections for the application, using provided booleans to determine which types of connections to initialize.
+        /// Initializes connections based on the provided DatabaseType. The DatabaseType is a public enum.
         /// </summary>
-        /// <param name="useDatabase">Whether or not to initialize the database connection.</param>
-        /// <param name="useTextFiles">Whether or not to initialize the text file connection.</param>
-        public static void InitializeConnections(bool useDatabase, bool useTextFiles)
+        /// <param name="databaseType">The type of database to connect to (Sql or TextFile)</param>
+        public static void InitializeConnection(DatabaseType databaseType)
         {
-            if (useDatabase)
+            switch (databaseType)
             {
-                // TODO - Setup the SQL connector properly
-                SqlConnector sql = new SqlConnector();
-                Connections.Add(sql);
-            }
+                case DatabaseType.Sql:
+                    SqlConnector sql = new SqlConnector();
+                    Connection = sql;
+                    break;
 
-            if (useTextFiles)
-            {
-                // TODO - Setup the Text File connector properly
-                TextConnector text = new TextConnector();
-                Connections.Add(text);
+                case DatabaseType.TextFile:
+                    TextConnector text = new TextConnector();
+                    Connection = text;
+                    break;
+
+                default:
+                    break;
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using TrackerLibrary;
+
 namespace TrackerUI
 {
     internal static class Program
@@ -14,7 +16,7 @@ namespace TrackerUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Initialize the connections
-            TrackerLibrary.GlobalConfig.InitializeConnections(true, true);
+            TrackerLibrary.GlobalConfig.InitializeConnection(DatabaseType.Sql);
 
             Application.Run(new CreatePrizeForm());
             //Application.Run(new TournamentDashboardForm()); <- This is the startup we want later. 

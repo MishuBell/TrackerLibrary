@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Connectors\ExampleClassForNamespacesAndFolders.cs" />
+    <Compile Include="Enums.cs" />
+>>>>>>> Stashed changes
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="Connectors\IDataConnector.cs" />
     <Compile Include="Models\MatchupEntryModel.cs" />
