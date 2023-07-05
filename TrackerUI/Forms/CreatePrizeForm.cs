@@ -61,14 +61,14 @@ namespace TrackerUI
             }
 
             // Validate Prize Amount field
-            if (decimal.TryParse(prizeAmountValueTextbox.Text, out decimal prizeAmount) == false || prizeAmount <= 0)
+            if (decimal.TryParse(prizeAmountValueTextbox.Text, out decimal prizeAmount) == false || prizeAmount < 0)
             {
                 output = false;
             }
 
             // Validate Prize Percentage field
             if (double.TryParse(prizePercentageValueTextbox.Text, out double prizePercentage) == false 
-                                                                            && prizePercentage <= 0     
+                                                                            && prizePercentage < 0     
                                                                             && prizePercentage > 100)
             {
                 output = false;
