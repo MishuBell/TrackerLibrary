@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-﻿using System.Collections.Generic;
-=======
-﻿using System.Configuration;
->>>>>>> Stashed changes
+using System.Configuration;
 
 namespace TrackerLibrary
 {
@@ -38,6 +34,10 @@ namespace TrackerLibrary
                 default:
                     break;
             }
+        }
+        public static string CnnString(string name)
+        {
+            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
     }
 }
