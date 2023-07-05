@@ -8,7 +8,7 @@
         /// <summary>
         /// The unique identifier for the prize.
         /// </summary>
-        public int Id { get; set; }
+        public  int  Id { get; set; }
 
         /// <summary>
         /// Gets or sets the place number of the prize.
@@ -29,16 +29,13 @@
         /// Gets or sets the percentage of the overall prize pool for this prize.
         /// </summary>
         public double PrizePercentage { get; set; }
-
-        public PrizeModel()
-        {
-
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the PrizeModel class. Converts the string values to the appropriate data types.
-        /// </summary>
-        public PrizeModel(string placeNumber, string placeName, string prizeAmount, string prizePercentage)
+		
+		public PrizeModel()
+		{
+			
+		}
+		
+		public PrizeModel(string placeNumber, string placeName, string prizeAmount, string prizePercentage)
         {
             PlaceNumber = default;
             if (int.TryParse(placeNumber, out int placeNumberValue))

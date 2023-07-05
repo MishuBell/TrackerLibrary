@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using TrackerLibrary;
 
 namespace TrackerUI
 {
@@ -10,6 +16,7 @@ namespace TrackerUI
         {
             InitializeComponent();
         }
+
         
         // TODO - When a Amount is added, no percentage can be added and vice versa
         private void CreatePrizeButton_Click(object sender, EventArgs e)
@@ -78,18 +85,3 @@ namespace TrackerUI
         }
     }
 }
-/*
-
-The foreach-loop in the CreatePrizeButton_Click method is a good example of how we can use the GlobalConfig class to access the connections list. It iterates through all the connections and adds the newly created prize model to the database. This is a good example on how to use static classes and methods to access data from anywhere in the application.
-
-
-
-
-
-
-
-
-
-
-
-*/

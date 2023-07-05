@@ -13,15 +13,28 @@
         /// <returns>The PrizeModel instance including a new unique ID.</returns>
         public PrizeModel CreatePrize(PrizeModel model)
         {
-            model.Id = 1;
-            return model;
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            {
+                var dP = new DynamicParameters();
+                dP.Add("@PlaceNumber", model.PlaceNumber);
+                dP.Add("@PlaceName", model.PlaceName);
+                dP.Add("@PrizeAmount", model.PrizeAmount);
+                dP.Add("@PrizePercentage", model.PrizePercentage);
+                dP.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spPrizes_Insert", dP, commandType: CommandType.StoredProcedure);
+
+                model.Id = dP.Get<int>("@id");
+
+                return model;
+            }
         }
     }
 }
 
 /*
 
-We want to return a PrizeModel ... but we also need to take a prize model as a parameter. 
+We want to return a PrizeModel ... but we also need to take a prize model as a parameter
 
 
 
