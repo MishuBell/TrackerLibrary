@@ -1,6 +1,6 @@
-﻿using System.Data.SqlClient;
+﻿using Dapper;
 using System.Data;
-using Dapper;
+using System.Data.SqlClient;
 
 namespace TrackerLibrary
 {
