@@ -11,5 +11,6 @@
         /// <param name="model">The prize information.</param>
         /// <returns> A prize model </returns>
         PrizeModel CreatePrize(PrizeModel model);
+        PersonModel CreatePerson(PersonModel model);
     }
 }

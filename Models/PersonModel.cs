@@ -5,6 +5,8 @@
     /// </summary>
     public class PersonModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// The first name of the Person.
         /// </summary>
@@ -24,5 +26,7 @@
         /// The cell phone number of the Person.
         /// </summary>
         public string CellphoneNumber { get; set; }
+
+        
     }
 }

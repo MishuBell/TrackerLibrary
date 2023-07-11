@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using TrackerLibrary;
 
 namespace TrackerUI
 {
@@ -11,7 +12,29 @@ namespace TrackerUI
 
         private void createMemberButton_Click(object sender, System.EventArgs e)
         {
+            if (ValidateForm())
+            {
+                PersonModel person = new PersonModel();
+                person.FirstName = firstNameValueTextbox.Text;
+                person.LastName = lastNameValueTextbox.Text;
+                person.EmailAddress = emailValueTextbox.Text;
+                person.CellphoneNumber = cellphoneValueTextbox.Text;
 
+                GlobalConfig.Connection.CreatePerson(person);
+
+                firstNameValueTextbox.Text = "";
+                lastNameValueTextbox.Text = "";
+                emailValueTextbox.Text = "";
+                cellphoneValueTextbox.Text = "";
+
+            }
+            else
+            {
+                MessageBox.Show("Enter values");
+            }
+            
+
+               
         }
 
         private bool ValidateForm()

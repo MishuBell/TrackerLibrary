@@ -33,6 +33,25 @@ namespace TrackerLibrary
                 return model;
             }
         }
+
+        public PersonModel CreatePerson(PersonModel model)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            {
+                var dP = new DynamicParameters();
+                dP.Add("@FirstName", model.FirstName);
+                dP.Add("@LastName", model.LastName);
+                dP.Add("@EmailAddress", model.EmailAddress);
+                dP.Add("@CellphoneNumber", model.CellphoneNumber);
+                dP.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spPeople_Insert", dP, commandType: CommandType.StoredProcedure);
+
+                model.Id = dP.Get<int>("@id");
+
+                return model;
+            }
+        }
     }
 }
 
